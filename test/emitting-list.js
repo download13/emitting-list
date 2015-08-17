@@ -135,6 +135,29 @@ describe('EmittingList', function() {
 		});
 	});
 
+	it('stops emitting events when no longer listened too', function(done) {
+		var el = new EmittingList([1, 4]);
+
+		var total = 0;
+		var removeListener = el.onChange(function(type, index, item) {
+			assert.equal(type, 'add');
+
+			total += item;
+		});
+
+		el.push(6);
+
+		removeListener();
+
+		el.push(3);
+
+		setTimeout(function() {
+			if(total === 11) {
+				done();
+			}
+		}, 10);
+	});
+
 	it('emits an event when pushed', function(done) {
 		var el = new EmittingList();
 

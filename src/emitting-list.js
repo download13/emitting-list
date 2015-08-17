@@ -20,6 +20,10 @@ export default class EmittingList {
 		this._state.forEach((item, i) => {
 			fn('add', i, item);
 		});
+
+		return () => {
+			this._handlers.delete(fn);
+		};
 	}
 
 	push(item) {

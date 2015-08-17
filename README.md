@@ -36,4 +36,4 @@ list.push('some other item');
 * `.unshift(item)` - Adds `item` to the front of the list
 * `.shift()` - Removed first item of the list and returns it
 * `.splice(startIndex, removeCount, ...itemsToAdd)` - Starting at `startIndex`, removed `removeCount` items and add each item in `itemsToAdd`
-* `.onChange(fn)` - Registers `fn` as a handler that will be called whenever the list is updated
+* `.onChange(fn)` - Registers `fn` as a handler that will be called whenever the list is updated. Also returns a function that will unregister your callback when called.
