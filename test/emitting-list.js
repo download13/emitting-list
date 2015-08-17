@@ -1,4 +1,4 @@
-var EmittingList = require('../lib/emitting-list');
+var EmittingList = require('../');
 
 var assert = require('assert');
 
